@@ -1,0 +1,31 @@
+body {
+    background-color: #D7F4FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Fontdiner Swanky", serif;
+    font-size: 50px;
+    color: #2E5CA2;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 720px;
+}
+
+button {
+    background-color: #2E5CA2;
+    color: #FFFFFF;
+    border: none;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    font-family: "Domine", serif;
+}
