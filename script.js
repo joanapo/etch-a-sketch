@@ -9,6 +9,12 @@ const clearGrid = document.getElementById("clear-grid");
 let isColorMode = false;
 let isOpacityMode = false;
 
+// Colors used
+const navy = "#2E5CA2";
+const white = "#FFFFFF";
+const lightBlue = "#D7F4FF";
+
+
 // Get color for square
 function getColor() {
     switch (isColorMode){
@@ -19,7 +25,7 @@ function getColor() {
             return `rgb(${r}, ${g}, ${b})`;
         
         case false:
-            return "#2E5CA2";
+            return navy;
     };
 };
 
@@ -49,14 +55,20 @@ newGrid.addEventListener("click", () => {
 colorMode.addEventListener("click", () => {
     if (isColorMode == false){
         isColorMode = true;
-        colorMode.style.backgroundColor = "#FFFFFF";
-        colorMode.style.color = "#2E5CA2";
+        colorMode.style.backgroundColor = white;
+        colorMode.style.color = navy;
     } else {
         isColorMode = false;
-        colorMode.style.backgroundColor = "#2E5CA2";
-        colorMode.style.color = "#FFFFFF";
+        colorMode.style.backgroundColor = navy;
+        colorMode.style.color = white;
     };
+});
 
+clearGrid.addEventListener("click", () => {
+    const squares = document.querySelectorAll("div.square");
+    squares.forEach((square) => {
+        square.style.backgroundColor = lightBlue;
+    })
 })
 
 // Etch-A-Sketch logic
