@@ -40,7 +40,7 @@ newGrid.addEventListener("click", () => {
     
     const squareSize = 500 / gridSize;
 
-    // clear previous grid
+    // clear previous container
     container.innerHTML = "";
 
     for (let i = 0; i < gridSize * gridSize; i++){
@@ -64,17 +64,33 @@ colorMode.addEventListener("click", () => {
     };
 });
 
+opacityMode.addEventListener("click", () => {
+    if (isOpacityMode == false){
+        isOpacityMode = true;
+        opacityMode.style.backgroundColor = white;
+        opacityMode.style.color = navy;
+    } else {
+        isOpacityMode = false;
+        opacityMode.style.backgroundColor = navy;
+        opacityMode.style.color = white;
+    };
+});
+
 clearGrid.addEventListener("click", () => {
     const squares = document.querySelectorAll("div.square");
     squares.forEach((square) => {
         square.style.backgroundColor = lightBlue;
-    })
-})
+        square.style.opacity = 1;
+    });
+});
 
 // Etch-A-Sketch logic
 container.addEventListener("mouseover", (e) =>{
     if (e.target.classList[0] == "square"){
     let color = getColor();
     e.target.style.backgroundColor = color;
+    if (isOpacityMode){
+        e.target.style.opacity = Number(e.target.style.opacity) + 0.1;
+    };
     };
 });
